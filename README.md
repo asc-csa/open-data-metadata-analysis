@@ -27,6 +27,7 @@ Le script produit les fichiers et la sortie suivants:
 -	Fichier CSV de tous les ensembles de données avec toutes les variables correspondantes 
 -	Graphique des ensembles de données avec des vues supérieures à 30 
 -	CSV d'ensembles de données avec moins de 30 vues
+- CSV avec gestionnaires de données
 
 ## About
 
@@ -56,3 +57,4 @@ The script should produce the following files and output:
 -	CSV file of all datasets with all corresponding variables
 -	Graph of datasets with views above 30
 -	CSV of datasets with views less than 30
+- CSV with data stewards
