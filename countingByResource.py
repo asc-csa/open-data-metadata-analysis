@@ -1,7 +1,5 @@
 import json
-import numpy as np
 import csv
-import requests
 import pandas
 import matplotlib.pyplot as plt
 from csv import writer
@@ -21,7 +19,7 @@ def label_graphs(test):
         x, y = p.get_xy()
         test.annotate(f'{height}\n', (x + width/2 , y + height+ 0.15),  ha='center', va='center')
 
-#A whole bunch of empty lists. This is ugly but it works. 
+# A bunch of empty lists
 data = []
 dataset_name_en = []
 dataset_name_fr = []
@@ -68,18 +66,21 @@ csv_data = pandas.read_csv(outfile, usecols = col_list)
 groupByProject = csv_data.groupby(['Project'])
 projectCounter = groupByProject.count()
 pCounterColumn = projectCounter['Dataset Name (EN)']
+print("Number of datasets in each project:")
 print(pCounterColumn.sort_values(ascending=False))
 pCounterColumn.to_csv('resourceProjectCount_' + date + '.csv', encoding = 'utf-8')
 
 groupByDivision = csv_data.groupby(['Division'])
 divisionCounter = groupByDivision.count()
 divCounterColumn = divisionCounter['Dataset Name (EN)']
+print("Number of datasets in each division:")
 print(divCounterColumn.sort_values(ascending=False))
 divCounterColumn.to_csv('resourceDivisionCount_' + date + '.csv', encoding = 'utf-8')
 
 groupByDirectorate = csv_data.groupby(['Directorate'])
 dirCounter = groupByDirectorate.count()
 dirCounterColumn = dirCounter['Dataset Name (EN)']
+print("Number of datasets in each directorate:")
 print(dirCounterColumn.sort_values(ascending=False))
 dirCounterColumn.to_csv('resourceDirectorateCount' + date + '.csv', encoding = 'utf-8')
 
@@ -111,7 +112,4 @@ plt.xticks(rotation=25, ha='right', wrap = True)
 graph3 = "resourceDirectorateCount_" + date + ".png"
 plt.savefig(graph3, bbox_inches = "tight")
 plt.show()
-
-print('done')
-status_code = []
 
