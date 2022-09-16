@@ -7,7 +7,13 @@ Le nouveau portail de données ouvertes d’ASC, lancé en 2021, permet un meill
 ## Exécution du script
 
 1.	Installez les prérequis contenus dans requirements.txt
+```
+pip install -r requirements.txt
+```
 2.	Exécutez le script avec la commande suivante
+```
+python main.py
+```
 
 ## Comportements attendus
 Le script produit les fichiers et la sortie suivants:
@@ -36,8 +42,13 @@ The new CSA open data portal, launched in 2021, allows better access to metadata
 ## Run the Script
 
 1.	Install requirements from the requirments.txt file
+```
 pip install -r requirements.txt
+```
 2.	Run the script using the following command
+```
+python main.py
+```
 
 ## Expected Behaviour
 
