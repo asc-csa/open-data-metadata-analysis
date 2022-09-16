@@ -16,7 +16,6 @@ infile = 'C:/Users/harain/Desktop/PythonFiles/Metadata/ckan_metadata_dump_202205
 outfile = 'df1.csv'
 
 stopwords = ("the", "of", "for", "on" , "and", "at", "a", "up", "in", "as", "s", "to", "are", "by", "This", "i", "is", "it", "from", "or", "be", "an", "was", "these", "which", "with", "that", "also", "its", "were", "has", "they", "who", "have", "until", "during", "based", "Canadian", "Space", "Agency", "use", "reports", "data", "CSA", "plan", "program", "year", "act", "report", "plans", "over", "Canada", "provide", "project", "department", "each")
-# canadian space agency
 
 data = []
 descriptions = []
@@ -26,25 +25,39 @@ with open(infile, encoding='utf-8') as f:
     for line in f:
         data.append(json.loads(line)) #load per line, needed for the jsonl format
 
-print(descriptions)
-
 for d in data:
-    dataset_name_en.append(d['title_translated']['fr'])
+    dataset_name_en.append(d['title_translated']['en'])
     descriptions.append(d['notes'])
 
-print(descriptions)
-comment_words = " ".join(descriptions) + " "
+datasetName_words = " ".join(dataset_name_en) + " "
+description_words = " ".join(descriptions) + " "
 
-wordcloud = WordCloud(width=1000, height=600,
+datasetNameWordcloud = WordCloud(width=1000, height=600,
                       background_color='white',
                       stopwords=stopwords,
                       max_words = 1000,
                       collocations = False,
-                      min_font_size=10).generate(comment_words)
+                      min_font_size=10).generate(datasetName_words)
+
+descriptionWordcloud = WordCloud(width=1000, height=600,
+                      background_color='white',
+                      stopwords=stopwords,
+                      max_words = 1000,
+                      collocations = False,
+                      min_font_size=10).generate(description_words)
 
 # plot the WordCloud image
 plt.figure(figsize=(8, 8), facecolor=None)
-plt.imshow(wordcloud)
+plt.imshow(datasetNameWordcloud)
+plt.axis("off")
+plt.tight_layout(pad=0)
+
+plt.gcf()
+plt.savefig('datasetName_wordCloud.png')
+plt.show()
+
+plt.figure(figsize=(8, 8), facecolor=None)
+plt.imshow(descriptionWordcloud)
 plt.axis("off")
 plt.tight_layout(pad=0)
 
