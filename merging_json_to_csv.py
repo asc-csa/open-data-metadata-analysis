@@ -18,10 +18,5 @@ df3.head()
 columns = ['dataset id', 'dataset name']
 df3.drop(columns, inplace=True, axis=1)
 
-# df3.rename(columns={'State_x': 'State', 'Agency_type_x': 'Agency_Type', 'Agency_name_x':'Agency_Name',
-#                          'vRace': 'Race', 'vRel': 'Religion', 'vSexOr': 'SexOrient',
-#                           }, inplace=True)
-# df3.head()
-
 df3.to_csv("json_merged.csv", sep=',', encoding='utf-8')
 df3.to_json("json_merged.json")
