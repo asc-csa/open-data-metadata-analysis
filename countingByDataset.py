@@ -1,12 +1,10 @@
 import json
 import numpy as np
 import csv
-import requests
 import pandas
 import matplotlib.pyplot as plt
 from csv import writer
 import time
-import seaborn as sb
 
 # %%
 date = time.strftime('%Y%m%d')
@@ -102,17 +100,20 @@ csv_data.Release_Date = csv_data['Release_Date'].dt.year
 groupByDate = csv_data.groupby(['Release_Date'])
 dateCounter = groupByDate.count()
 groupByDateColumn = dateCounter['Dataset Name (EN)']
-print(groupByDateColumn.sort_values(ascending=False))
+print("Number of datasets published each year:")
+print(groupByDateColumn)
 
 groupByDateDirectorate = csv_data.groupby(['Release_Date', 'Directorate'])
 dateDirectorateCounter = groupByDateDirectorate.count()
 groupByDateDirectorateColumn = dateDirectorateCounter['Dataset Name (EN)']
+print("Number of datasets published each year by directorate:")
 print(groupByDateDirectorateColumn.sort_values(ascending=False))
 
 groupByDataSteward = csv_data.groupby(['Data Steward'])
 dataStewardCounter = groupByDataSteward.count()
 dataStewardCounterColumn = dataStewardCounter['Dataset Name (EN)']
 dataStewardCounterColumn.to_csv('dataSteward_' + date + '.csv', encoding = 'utf-8')
+print("Number of datasets each data steward is resposible for:")
 print(dataStewardCounterColumn.sort_values(ascending=False))
 
 # grouping by categories, saving relevant information to dataframe and then external csv files
@@ -130,18 +131,21 @@ adminCounterColumnDirectorate.to_csv('scienceAdminDirectorate_' + date + '.csv',
 groupByProject = csv_data.groupby(['Project'])
 projectCounter = groupByProject.count()
 pCounterColumn = projectCounter['Dataset Name (EN)']
+print("Number of datasets in each project:")
 print(pCounterColumn.sort_values(ascending=False))
 pCounterColumn.to_csv('datasetProjectCount' + date + '.csv', encoding = 'utf-8')
 
 groupByDivision = csv_data.groupby(['Division'])
 divisionCounter = groupByDivision.count()
 divCounterColumn = divisionCounter['Dataset Name (EN)']
+print("Number of datasets in each division:")
 print(divCounterColumn.sort_values(ascending=False))
 divCounterColumn.to_csv('datasetDivisionCount' + date + '.csv', encoding = 'utf-8')
 
 groupByDirectorate = csv_data.groupby(['Directorate'])
 dirCounter = groupByDirectorate.count()
 dirCounterColumn = dirCounter['Dataset Name (EN)']
+print("Number of datasets in each directorate:")
 print(dirCounterColumn.sort_values(ascending=False))
 dirCounterColumn.to_csv('datasetDirectorateCount' + date + '.csv', encoding = 'utf-8')
 
@@ -155,6 +159,7 @@ high_views = pandas.DataFrame()
 low_views = pandas.DataFrame()
 
 viewCounterColumn = viewCounterColumn.sort_values(['total_views'], ascending=[False], ignore_index = True)
+print("Number of views for each dataset:")
 print(viewCounterColumn)
 
 for i in range(len(viewCounterColumn)):
@@ -271,12 +276,10 @@ plt.show()
 
 missing_directorates = list(set(directorate)^set(dataset_directorate))
 missing_directorates.remove("unassigned directorate")
+print("List of directorates without datasets:")
 print(missing_directorates)  
 
 missing_divisions = list(set(division)^set(dataset_division))
 missing_divisions.remove("unassigned division")
+print("List of divisions without datasets:")
 print(missing_divisions) 
-
-# %%
-
-print('done')
