@@ -69,3 +69,11 @@ The script should produce the following files and output:
 -	Graph of datasets with views above 30
 -	CSV of datasets with views less than 30
 - CSV with data stewards
+- Graph of number of resources in each project saved by date
+-	Graph of number of resources in each division saved by date
+-	Graph of number of resources in each directorate saved by date
+-	Table of number of resources in each project saved by date
+-	Table of number of resources in each division saved by date
+-	Table of number of resources in each directorate saved by date
+-	Word cloud of English description of datasets
+-	Word cloud of English dataset titles
