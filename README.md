@@ -34,6 +34,14 @@ Le script produit les fichiers et la sortie suivants:
 -	Graphique des ensembles de données avec des vues supérieures à 30 
 -	CSV d'ensembles de données avec moins de 30 vues
 - CSV avec gestionnaires de données
+- Graphique du nombre de ressources dans chaque projet enregistré par date
+- Graphique du nombre de ressources dans chaque division enregistrées par date
+- Graphique du nombre de ressources dans chaque direction enregistrées par date
+- Tableau du nombre de ressources dans chaque projet enregistré par date
+- Tableau du nombre de ressources dans chaque division enregistrées par date
+- Tableau du nombre de ressources dans chaque direction sauvegardées par date
+- Nuage de mots de description anglaise des jeux de données
+- Nuage de mots des titres des ensembles de données en anglais
 
 ## About
 
