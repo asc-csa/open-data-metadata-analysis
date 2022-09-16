@@ -1,15 +1,7 @@
-import numpy as np
 import json
-
-import pandas as pd
-from os import path
-from PIL import Image
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud, STOPWORDS, ImageColorGenerator
 
-from wordcloud import WordCloud, STOPWORDS
-import matplotlib.pyplot as plt
-import pandas as pd
 
 
 infile = 'C:/Users/harain/Desktop/PythonFiles/Metadata/ckan_metadata_dump_20220526.jsonl'
@@ -64,5 +56,7 @@ plt.tight_layout(pad=0)
 plt.gcf()
 plt.savefig('descriptions_wordCloud.png')
 plt.show()
+
+
 
 
