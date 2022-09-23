@@ -268,7 +268,7 @@ plt.ylabel('# of Datasets')
 plt.xlabel('Release Year')
 plt.xticks(rotation=25, ha='right', wrap = True)
 graph8 = "DatasetPerYear_" + date + '.png'
-plt.savefig(graph7, bbox_inches = "tight")
+plt.savefig(graph8, bbox_inches = "tight")
 plt.show()
 
 # %%
